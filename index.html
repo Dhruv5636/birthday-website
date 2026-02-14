@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Birthday Surprise</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Nunito:wght@400;700&family=Patrick+Hand&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <!-- ☁️ Background Effects -->
+    <div id="balloon-container"></div>
+    <div id="cursor-effects"></div> <!-- For magic trail -->
+
+    <!-- 🎵 Music Player -->
+    <div id="music-control" class="music-widget hidden">
+        <div class="vinyl spinning"></div>
+        <div class="track-info">
+            <span id="track-name">Song Name</span>
+            <button id="play-pause">⏸</button>
+        </div>
+        <audio id="audio-player" loop></audio>
+    </div>
+
+    <!-- 🎁 Opening Screen -->
+    <div id="landing-screen">
+        <div class="envelope-container">
+            <div class="envelope" id="envelope">
+                <div class="flap"></div>
+                <div class="pocket"></div>
+                <div class="letter">
+                    <h1 id="popup-title"></h1>
+                    <p id="popup-text"></p>
+                </div>
+            </div>
+        </div>
+        <button id="enter-btn">Tap to Open</button>
+    </div>
+
+    <!-- ✨ Main App -->
+    <main id="app" class="hidden">
+        
+        <!-- Hero -->
+        <header class="hero-section">
+            <!-- New Avatar -->
+            <div class="avatar-container">
+                <img id="hero-avatar" src="" alt="Her">
+                <div class="crown">👑</div>
+            </div>
+
+            <h1 id="hero-title" class="title-anim"></h1>
+            <p id="hero-msg"></p>
+            <div class="scroll-hint">Scroll Down ⬇</div>
+        </header>
+
+        <!-- 📖 Chapter 1: Our Timeline -->
+        <section class="section timeline-section">
+            <h2>Our Journey 🚀</h2>
+            <div class="timeline-container" id="timeline-box"></div>
+        </section>
+
+        <!-- ❓ Chapter 2: The Quiz -->
+        <section class="section quiz-section">
+            <h2 id="quiz-title">Quiz Time!</h2>
+            <div id="quiz-container"></div>
+            <p id="quiz-score" class="hidden"></p>
+        </section>
+
+        <!-- 📸 Chapter 3: Photo Scrapbook -->
+        <section class="section gallery-section">
+            <h2>Best Memories 📸</h2>
+            <div class="masonry-grid" id="gallery-box"></div>
+        </section>
+
+        <!-- 💌 Chapter 4: Open When Cards -->
+        <section class="section open-when-section">
+            <h2>Open When... 💌</h2>
+            <div class="open-when-grid" id="open-when-box"></div>
+        </section>
+
+        <!-- 🎟️ Chapter 5: Love Coupons -->
+        <section class="section coupon-section">
+            <h2>My Gifts to You 🎁</h2>
+            <p class="subtitle">Tap a card to redeem!</p>
+            <div class="coupon-grid" id="coupon-box"></div>
+        </section>
+
+        <!-- 📝 Chapter 6: The Long Letter -->
+        <section class="section letter-section">
+            <div class="paper-note">
+                <div class="pin">📌</div>
+                <h2 id="letter-title"></h2>
+                <div id="letter-body" class="handwritten-text"></div>
+                <div class="signature">- Always Yours</div>
+            </div>
+        </section>
+
+        <!-- 🎂 Chapter 7: The Cake -->
+        <section class="section cake-section">
+            <h2>Make a Wish! 🕯️</h2>
+            <p>Tap the candles to blow them out.</p>
+            
+            <div class="cake-container">
+                <div class="cake">
+                    <div class="icing"></div>
+                    <div class="candle" onclick="blowCandle(this)">
+                        <div class="flame"></div>
+                    </div>
+                    <div class="candle" onclick="blowCandle(this)">
+                        <div class="flame"></div>
+                    </div>
+                    <div class="candle" onclick="blowCandle(this)">
+                        <div class="flame"></div>
+                    </div>
+                </div>
+            </div>
+            <h1 id="wish-msg" class="hidden">Happy Birthday!! 🎉</h1>
+        </section>
+
+        <footer>
+            <button onclick="location.reload()">Replay Story ↺</button>
+        </footer>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

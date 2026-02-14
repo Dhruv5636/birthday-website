@@ -1,0 +1,82 @@
+==================================================
+   HOW TO CUSTOMIZE YOUR BIRTHDAY WEBSITE 🎂
+==================================================
+
+Everything is controlled by one file: `config.js`.
+You do NOT need to touch the complex code in index.html or script.js.
+
+--------------------------------------------------
+1. HOW TO CHANGE TEXT 📝
+--------------------------------------------------
+1. Open the folder `birthday_surprise`.
+2. Right-click on `config.js` and select "Open with Notepad" (or VS Code).
+3. You will see lines like this:
+   
+   heroTitle: "Happy Birthday, Princess 👑",
+
+   > Change the text inside the quotes "".
+   > Example: heroTitle: "Happy Birthday Sarah! ❤️",
+
+   TIP: Use "<br>" if you want to force a new line.
+
+--------------------------------------------------
+2. HOW TO CHANGE PHOTOS 📸
+--------------------------------------------------
+The website looks for images in the `images` folder.
+
+Step A: Add your photos
+1. Copy your photos (JPG, PNG) into the `birthday_surprise\images` folder.
+
+Step B: Tell the website to use them
+1. Open `config.js`.
+2. Find the "gallery" section:
+
+   gallery: [
+       "image1.svg", 
+       "image2.svg"
+   ],
+
+3. Change the names to match YOUR photo filenames.
+   
+   gallery: [
+       "selfie.jpg", 
+       "us_at_beach.png",
+       "dinner_date.jpg"
+   ],
+
+--------------------------------------------------
+3. HOW TO CHANGE THE AVATAR (Profile Pic) 👸
+--------------------------------------------------
+1. Put a nice photo of her in the `images` folder.
+2. In `config.js`, find:
+   
+   heroAvatar: "images/avatar.svg",
+
+3. Change it to your new photo:
+   
+   heroAvatar: "images/her_face.jpg",
+
+--------------------------------------------------
+4. HOW TO ADD MUSIC 🎵
+--------------------------------------------------
+1. Put your MP3 file in the `birthday_surprise\music` folder.
+2. In `config.js`, find:
+   
+   musicFile: "music/bg-music.mp3",
+
+3. Change "bg-music.mp3" to your song name (e.g., "perfect.mp3").
+
+--------------------------------------------------
+5. HOW TO CHANGE COLORS 🎨
+--------------------------------------------------
+In `config.js`, find:
+   theme: "pink",
+
+Change "pink" to one of these:
+- "blue"
+- "purple"
+- "dark"
+
+==================================================
+Saved! Double-click index.html to view changes.
+==================================================

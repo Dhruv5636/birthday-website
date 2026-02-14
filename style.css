@@ -1,0 +1,289 @@
+:root {
+    /* Default Pink Theme */
+    --bg: #fdfbf7;
+    --paper: #fff;
+    --primary: #ffafcc;
+    --text: #5e548e;
+    --accent: #cdb4db;
+    --secondary: #a2d2ff;
+    
+    --font-hand: 'Patrick Hand', cursive;
+    --font-title: 'Dancing Script', cursive;
+    --font-body: 'Quicksand', sans-serif;
+}
+
+/* Theme Overrides */
+body.theme-blue { --bg: #f0f8ff; --primary: #87cefa; --accent: #4682b4; --text: #2c3e50; }
+body.theme-purple { --bg: #f3e5f5; --primary: #ce93d8; --accent: #8e24aa; --text: #4a148c; }
+body.theme-dark { --bg: #1a1a1a; --paper: #2d2d2d; --primary: #d63384; --accent: #ff69b4; --text: #ffffff; }
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    margin: 0;
+    overflow-x: hidden;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="%23ffafcc"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') 10 10, auto; /* Custom Heart Cursor */
+}
+
+/* 🎈 Floating Balloons */
+#balloon-container {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.balloon {
+    position: absolute;
+    bottom: -100px;
+    width: 40px; height: 50px;
+    background: var(--primary);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: floatUp 15s linear infinite;
+}
+.balloon::before {
+    content: '';
+    position: absolute;
+    bottom: -10px; left: 50%;
+    width: 2px; height: 30px;
+    background: rgba(0,0,0,0.1);
+    transform: translateX(-50%);
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    100% { transform: translateY(-110vh) rotate(20deg); opacity: 0; }
+}
+
+/* ✨ Magic Cursor Trail */
+.magic-particle {
+    position: fixed;
+    pointer-events: none;
+    font-size: 1.2rem;
+    animation: fadeOutUp 1s forwards;
+    z-index: 9999;
+}
+@keyframes fadeOutUp {
+    to { transform: translateY(-50px) scale(0.5); opacity: 0; }
+}
+
+/* 👤 Bouncing Avatar */
+.avatar-container {
+    position: relative;
+    width: 150px; height: 150px;
+    margin-bottom: 20px;
+}
+
+#hero-avatar {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    animation: boop 3s infinite ease-in-out;
+    transition: transform 0.2s;
+}
+#hero-avatar:active { transform: scale(0.9) rotate(-10deg); }
+
+.crown {
+    position: absolute;
+    top: -20px; right: -10px;
+    font-size: 3rem;
+    animation: wobble 2s infinite;
+}
+
+@keyframes boop { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+@keyframes wobble { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } }
+
+/* 🎁 Envelope Landing */
+#landing-screen {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    transition: transform 1s ease-in-out;
+}
+
+.envelope-container { perspective: 1000px; margin-bottom: 50px; }
+.envelope {
+    width: 300px; height: 200px;
+    background: var(--accent);
+    position: relative;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.flap {
+    position: absolute; top: 0; left: 0;
+    width: 0; height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 100px solid #ff9ebb;
+    transform-origin: top;
+    transition: transform 0.5s; z-index: 3;
+}
+.envelope.open .flap { transform: rotateX(180deg); z-index: 1; }
+.pocket {
+    position: absolute; bottom: 0; left: 0;
+    width: 0; height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-bottom: 100px solid rgba(255,255,255,0.3); z-index: 2;
+}
+.letter {
+    position: absolute; bottom: 0; left: 20px;
+    width: 260px; height: 180px;
+    background: white; padding: 20px;
+    text-align: center;
+    transition: transform 0.5s 0.5s; z-index: 1;
+    box-shadow: 0 -5px 10px rgba(0,0,0,0.1);
+    color: #333;
+}
+.envelope.open .letter { transform: translateY(-100px); z-index: 4; }
+
+#enter-btn {
+    padding: 15px 40px;
+    background: white;
+    border: none; border-radius: 30px;
+    color: var(--accent); font-weight: bold;
+    font-size: 1.2rem; cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+#enter-btn:active { transform: scale(0.95); }
+
+/* ✨ Main App */
+.hidden { display: none !important; }
+#app { padding-bottom: 50px; opacity: 0; animation: fadeIn 1s forwards 0.5s; }
+@keyframes fadeIn { to { opacity: 1; } }
+
+.section { padding: 40px 20px; max-width: 600px; margin: 0 auto; text-align: center; }
+h2 { font-family: var(--font-title); font-size: 2.5rem; color: var(--accent); margin-bottom: 30px; }
+
+/* Hero */
+.hero-section {
+    height: 90vh;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    text-align: center; position: relative;
+}
+.title-anim { font-family: var(--font-title); font-size: 3.5rem; color: var(--accent); animation: popIn 1s ease; }
+
+/* 🚀 Timeline */
+.timeline-container {
+    position: relative; padding-left: 20px;
+    border-left: 3px dashed var(--primary);
+    text-align: left; margin-left: 20px;
+}
+.timeline-item { margin-bottom: 30px; position: relative; opacity: 0; transform: translateX(-20px); transition: all 0.6s ease; }
+.timeline-item.show { opacity: 1; transform: translateX(0); }
+.timeline-dot {
+    position: absolute; left: -29px; top: 5px;
+    width: 15px; height: 15px;
+    background: var(--accent);
+    border-radius: 50%; border: 3px solid white;
+}
+.timeline-content {
+    background: var(--paper); padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* ❓ Quiz Styles */
+.quiz-option {
+    display: block; width: 100%; padding: 15px; margin: 10px 0;
+    background: var(--paper); border: 2px solid var(--primary);
+    border-radius: 50px; /* Pill shape */
+    font-size: 1rem; cursor: pointer; transition: 0.3s;
+    color: var(--text); font-family: var(--font-body);
+}
+.quiz-option:hover { background: var(--primary); color: white; transform: scale(1.02); }
+.quiz-option.correct { background: #a8e6cf; border-color: #a8e6cf; color: #333; }
+.quiz-option.wrong { background: #ff8b94; border-color: #ff8b94; color: white; }
+.feedback-msg { font-weight: bold; margin-top: 10px; color: var(--accent); }
+
+/* 💌 Open When Cards */
+.open-when-grid { display: flex; flex-direction: column; gap: 15px; }
+.open-when-card {
+    background: var(--paper); border: 2px solid var(--secondary);
+    padding: 20px; border-radius: 20px;
+    cursor: pointer; position: relative; overflow: hidden;
+}
+.open-when-card h3 { margin: 0; color: var(--text); }
+.open-when-content {
+    max-height: 0; overflow: hidden; transition: max-height 0.5s ease;
+    margin-top: 0; color: var(--accent); font-weight: bold;
+}
+.open-when-card.open .open-when-content { margin-top: 10px; max-height: 100px; }
+
+/* 📸 Gallery */
+.masonry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; }
+.gallery-img {
+    width: 100%; border-radius: 15px; border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: rotate(2deg); transition: transform 0.3s;
+}
+.gallery-img:nth-child(even) { transform: rotate(-2deg); }
+.gallery-img:hover { transform: scale(1.05) rotate(0); z-index: 10; }
+
+/* 🎟️ Coupons */
+.coupon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+.coupon-card {
+    background: var(--paper); border: 2px dashed var(--accent);
+    padding: 20px; border-radius: 20px; cursor: pointer; transition: all 0.3s;
+}
+.coupon-card:hover { transform: translateY(-5px) rotate(1deg); }
+.coupon-card.redeemed { opacity: 0.5; text-decoration: line-through; pointer-events: none; }
+
+/* 📝 Letter */
+.paper-note {
+    background: var(--paper); background-image: url('images/lined-paper.svg');
+    padding: 30px; position: relative;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transform: rotate(1deg); min-height: 300px; border-radius: 5px;
+}
+.pin { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); font-size: 2rem; }
+.handwritten-text {
+    font-family: var(--font-hand); font-size: 1.4rem;
+    line-height: 1.6; text-align: left; color: #444;
+}
+
+/* 🎂 Cake */
+.cake-container { height: 200px; display: flex; justify-content: center; align-items: flex-end; margin-top: 50px; }
+.cake {
+    width: 150px; height: 100px; background: #ffcfdf;
+    border-radius: 10px 10px 0 0; position: relative;
+    display: flex; justify-content: center;
+}
+.icing { position: absolute; top: -10px; width: 100%; height: 20px; background: white; border-radius: 10px; }
+.candle {
+    width: 10px; height: 40px;
+    background: repeating-linear-gradient(45deg, #a2d2ff, #a2d2ff 5px, white 5px, white 10px);
+    margin: 0 10px; position: relative; top: -30px; cursor: pointer;
+}
+.flame {
+    width: 15px; height: 20px; background: orange;
+    border-radius: 50% 50% 20% 20%; position: absolute; top: -20px; left: -2.5px;
+    animation: flicker 0.5s infinite;
+}
+.flame.out { display: none; }
+@keyframes flicker { 0%,100%{opacity:1; transform:scale(1)} 50%{opacity:0.8; transform:scale(1.1)} }
+
+/* 🎵 Music Widget */
+.music-widget {
+    position: fixed; top: 20px; right: 20px;
+    background: rgba(255,255,255,0.8); backdrop-filter: blur(5px);
+    padding: 10px; border-radius: 30px;
+    display: flex; align-items: center; gap: 10px;
+    z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.vinyl { width: 30px; height: 30px; background: black; border-radius: 50%; border: 2px solid white; }
+.vinyl.spinning { animation: spin 2s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }

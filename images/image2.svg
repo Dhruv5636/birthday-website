@@ -1,0 +1,5 @@
+<svg width="400" height="500" xmlns="http://www.w3.org/2000/svg">
+ <rect width="100%" height="100%" fill="#a2d2ff" rx="20" ry="20"/>
+ <circle cx="200" cy="200" r="80" fill="#ffffff" opacity="0.5"/>
+ <text x="50%" y="50%" font-family="Arial" font-size="30" fill="white" dominant-baseline="middle" text-anchor="middle">Cute Photo 📸</text>
+</svg>
