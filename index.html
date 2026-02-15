@@ -1,130 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Birthday Surprise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;600&family=Sacramento&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Nunito:wght@400;700&family=Patrick+Hand&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
+
 <body>
 
-    <!-- ☁️ Background Effects -->
-    <div id="balloon-container"></div>
-    <div id="cursor-effects"></div> <!-- For magic trail -->
+    <!-- Falling Elements Container -->
+    <div id="falling-container"></div>
 
-    <!-- 🎵 Music Player -->
-    <div id="music-control" class="music-widget hidden">
-        <div class="vinyl spinning"></div>
-        <div class="track-info">
-            <span id="track-name">Song Name</span>
-            <button id="play-pause">⏸</button>
+    <!-- Hero / Zero-Gravity Floral Dreamscape -->
+    <section id="hero" class="hero-overlay floral-dreamscape">
+        <!-- Floating Decorative Elements (Placeholders) -->
+        <img src="flower1.png" class="floating-flower p1" alt="Flower Decor" onerror="this.style.display='none'">
+        <img src="flower2.png" class="floating-flower p2" alt="Flower Decor" onerror="this.style.display='none'">
+        <img src="flower3.png" class="floating-flower p3" alt="Flower Decor" onerror="this.style.display='none'">
+        <img src="petal1.png" class="floating-flower p4" alt="Petal Decor" onerror="this.style.display='none'">
+        <img src="petal2.png" class="floating-flower p5" alt="Petal Decor" onerror="this.style.display='none'">
+        <img src="flower1.png" class="floating-flower p6" alt="Flower Decor" onerror="this.style.display='none'">
+        <img src="petal1.png" class="floating-flower p7" alt="Petal Decor" onerror="this.style.display='none'">
+
+        <!-- Center Frosted Glass Card -->
+        <div class="hero-content glass-card breathes">
+            <h1 class="hero-title">For My Beautiful Rabbit🐰...</h1>
+            <h2 class="hero-subtitle">A Little efforts for You</h2>
+            <button id="open-surprise-btn" class="btn glow-btn">Enter 💝</button>
         </div>
-        <audio id="audio-player" loop></audio>
-    </div>
+    </section>
 
-    <!-- 🎁 Opening Screen -->
-    <div id="landing-screen">
-        <div class="envelope-container">
-            <div class="envelope" id="envelope">
-                <div class="flap"></div>
-                <div class="pocket"></div>
-                <div class="letter">
-                    <h1 id="popup-title"></h1>
-                    <p id="popup-text"></p>
+    <!-- Main Content (Hidden initially) -->
+    <main id="main-content" class="hidden">
+
+        <!-- Greeting Section -->
+        <section id="greeting" class="section">
+            <h1 class="title">Happy Birthday, My Beautiful 'Bhangan'</h1>
+            <h2 class="subtitle">February 16th</h2>
+            <div class="scroll-indicator">↓</div>
+        </section>
+
+        <!-- Reason Why I Love You -->
+        <section id="reasons" class="section">
+            <h2>Things I Love About You</h2>
+            <div class="love-grid">
+                <div class="love-card glass-card">
+                    <span class="icon">✨</span>
+                    <p>your "kindness" is so gentle and pure that it makes my heart believe in love without saying a word.</p>
+                </div>
+                <div class="love-card glass-card">
+                    <span class="icon">🦋</span>
+                    <p>Her "Originality" is the rare spark that makes her beautifully different from everyone else.</p>
+                </div>
+                <div class="love-card glass-card">
+                    <span class="icon">💝</span>
+                    <p>your "simplicity" is her quiet elegance — effortless, pure, and more beautiful than anything loud could ever be.</p>
+                </div>
+                <div class="love-card glass-card">
+                    <span class="icon">😤</span>
+                    <p>Even your "anger" is beautiful — it only shows how deeply she feels and how fiercely she cares.</p>
                 </div>
             </div>
-        </div>
-        <button id="enter-btn">Tap to Open</button>
+        </section>
+
+        <!-- The Promise Section -->
+        <section id="promises" class="section">
+            <div class="glass-card promise-card">
+                <h2>My Promises to You</h2>
+                <ul class="promise-list">
+                    <li>I always make you smile.</li>
+                    <li>I listen to you, always.</li>
+                    <li>To be your biggest supporter </li>
+                    <li>I will never leave you 💕 </li>
+                    <li>I will tease you, until I die</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Memory Lane (Written) -->
+        <section id="memory-lane" class="section">
+            <h2>Memory Lane</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="content glass-card">
+                        <h3>Holding hands first time at the last seat of school bus</h3>
+                        <p>First time jab hmne hath pakda tha pta nahi suddenly I feel butterflies in my stomach. Tere hath ki warmth🌸 to me kabhi bhul hi nahi sakta, tere ungliyon ka vo halka sa squeeze..... 💝Jaise silently keh rahe ho ki "I'm here". Tere ko to kha he yaad hoga. Na koi filmy dialogue na koi na koi dramatic scene bs ek simple sa moment kuch special sa ban gaya tha✨.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="content glass-card">
+                        <h3>Our first eye contact </h3>
+                        <p>ek to tere ankhe👀, ankhe hai ki button itni badi, padhne me bhi time laga. ✨Pr jab padha to pta lga ki log ankho me dubte kese hai or me to esa duba ki abhi tak nikal he nahi paya or na he kabhi nikal paunga. My eyes forgot to blink when I lost in your eyes🌼
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="content glass-card">
+                        <h3>I love teasing you</h3>
+                        <p>sabse best moment tha, hai or forever rahega tere ko tease kerna pr tere se me badla jarur lunga tuje tease kerna ka phal mujhe mummy ne diya tha. vo 4 chate to me kabhi bhulunga nahi. pr tujhe tease kerne ka mera asli maksad bs tera vo cute sa gusse wala reaction churana hai💝, pr jab mujhe lagta hai ki jyada ho rha hai to me softly sorry bhi bol deta hu💐.Teasing meri aadat hai, par tum special ho.
+Isliye agar kabhi bhi bura laga ho, dil se maafi.
+Tumhari ek choti si reaction ke liye hi saari shararat hoti hai.
+Aur haan… I promise, next time thoda gentle version✨</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Memory Gallery -->
+        <section id="gallery" class="section">
+            <h2>Our Memories</h2>
+          <div class="gallery-grid">
+    <div class="poloroid tilt-left">
+        <img src="images/anushka_1.jpeg" alt="Memory 1" 
+             onerror="this.onerror=null;this.src='https://via.placeholder.com/300x350?text=Photo+Missing'">
+        <p class="caption">So pure🦋</p>
     </div>
 
-    <!-- ✨ Main App -->
-    <main id="app" class="hidden">
-        
-        <!-- Hero -->
-        <header class="hero-section">
-            <!-- New Avatar -->
-            <div class="avatar-container">
-                <img id="hero-avatar" src="" alt="Her">
-                <div class="crown">👑</div>
-            </div>
+    <div class="poloroid tilt-right">
+        <img src="images/anushka_2.jpeg" alt="Memory 2" 
+             onerror="this.onerror=null;this.src='https://via.placeholder.com/300x350?text=Photo+Missing'">
+        <p class="caption">Gorgeous✨</p>
+    </div>
 
-            <h1 id="hero-title" class="title-anim"></h1>
-            <p id="hero-msg"></p>
-            <div class="scroll-hint">Scroll Down ⬇</div>
-        </header>
-
-        <!-- 📖 Chapter 1: Our Timeline -->
-        <section class="section timeline-section">
-            <h2>Our Journey 🚀</h2>
-            <div class="timeline-container" id="timeline-box"></div>
+    <div class="poloroid tilt-left">
+        <img src="images/anushka_3.jpeg" alt="Memory 3" 
+             onerror="this.onerror=null;this.src='https://via.placeholder.com/300x350?text=Photo+Missing'">
+        <p class="caption">Beautiful💝</p>
+    </div>
+</div>
         </section>
 
-        <!-- ❓ Chapter 2: The Quiz -->
-        <section class="section quiz-section">
-            <h2 id="quiz-title">Quiz Time!</h2>
-            <div id="quiz-container"></div>
-            <p id="quiz-score" class="hidden"></p>
-        </section>
-
-        <!-- 📸 Chapter 3: Photo Scrapbook -->
-        <section class="section gallery-section">
-            <h2>Best Memories 📸</h2>
-            <div class="masonry-grid" id="gallery-box"></div>
-        </section>
-
-        <!-- 💌 Chapter 4: Open When Cards -->
-        <section class="section open-when-section">
-            <h2>Open When... 💌</h2>
-            <div class="open-when-grid" id="open-when-box"></div>
-        </section>
-
-        <!-- 🎟️ Chapter 5: Love Coupons -->
-        <section class="section coupon-section">
-            <h2>My Gifts to You 🎁</h2>
-            <p class="subtitle">Tap a card to redeem!</p>
-            <div class="coupon-grid" id="coupon-box"></div>
-        </section>
-
-        <!-- 📝 Chapter 6: The Long Letter -->
-        <section class="section letter-section">
-            <div class="paper-note">
-                <div class="pin">📌</div>
-                <h2 id="letter-title"></h2>
-                <div id="letter-body" class="handwritten-text"></div>
-                <div class="signature">- Always Yours</div>
+        <!-- Love Letter -->
+        <section id="letter" class="section">
+            <div class="paper-letter">
+                <h2>A Letter for You</h2>
+                <div class="letter-text">
+                    <p>My Dearest,</p>
+                    <p>On this special day, I just want to tell you how incredibly lucky I am to have you in my life.I don’t know future kya likha hai, par agar possible ho… toh us future mein main hamesha tumhare saath rehna chahta hoon.
+                        You bring so much light, love, and laughter into my world.tum meri daily life ka ek important part ban chuki ho. Tumse baat karna, tumhe tease karna, tumhari smile dekhna — yeh choti choti cheezein mere din ko better bana deti hain.Mujhe tumhari woh simplicity pasand hai jo bina try kiye hi shine karti hai. Tumhara kind heart, tumhari sachchi baatein, aur haan… tumhara thoda sa cute gussa bhi.</p>
+                    <p>Every moment with you is a treasure. I hope this day is as beautiful as you are.</p>
+                    <p>Happy birthday apni life me kush reh khub maje ker or thoda mota hoja babu kyuki patle logo pe mera chata jhilta nahi hai. or maggie khao roj teen time. once again happy birthday bhangan.</p>
+                    
+                    <p>Forever yours,</p>
+                    <p class="signature">Me</p>
+                </div>
             </div>
         </section>
 
-        <!-- 🎂 Chapter 7: The Cake -->
-        <section class="section cake-section">
-            <h2>Make a Wish! 🕯️</h2>
-            <p>Tap the candles to blow them out.</p>
-            
+        <!-- Grand Finale: Cake -->
+        <section id="cake-section" class="section">
+            <h2>Make a Wish</h2>
+            <p class="instruction">Hover over the flame (or hold tap) to blow out the candle!</p>
+
             <div class="cake-container">
-                <div class="cake">
+                <div class="cake" id="whole-cake">
+                    <div class="plate"></div>
+                    <div class="layer layer-bottom"></div>
+                    <div class="layer layer-middle"></div>
+                    <div class="layer layer-top"></div>
                     <div class="icing"></div>
-                    <div class="candle" onclick="blowCandle(this)">
-                        <div class="flame"></div>
+                    <div class="drip drip1"></div>
+                    <div class="drip drip2"></div>
+                    <div class="drip drip3"></div>
+                    <div class="candle">
+                        <div class="flame" id="flame"></div>
                     </div>
-                    <div class="candle" onclick="blowCandle(this)">
-                        <div class="flame"></div>
-                    </div>
-                    <div class="candle" onclick="blowCandle(this)">
-                        <div class="flame"></div>
-                    </div>
+                    <!-- Knife for animation -->
+                    <div class="knife hidden" id="knife"></div>
                 </div>
-            </div>
-            <h1 id="wish-msg" class="hidden">Happy Birthday!! 🎉</h1>
+
+                <button id="cut-cake-btn" class="btn hidden">Cut the Cake! 🎂</button>
         </section>
 
-        <footer>
-            <button onclick="location.reload()">Replay Story ↺</button>
-        </footer>
+        <!-- The Surprise Reveal -->
+        <section id="gift-reveal" class="section hidden">
+    <h2>One Last Surprise...</h2>
+    <div class="envelope-container" id="envelope-container">
+        <div class="envelope">
+            <div class="envelope-flap"></div>
+            <div class="envelope-pocket"></div>
+            <div class="letter-content">
+                <div class="photo-frame">
+                    <img src="images/daksh.jpeg" alt="My Heart"
+                        onerror="this.onerror=null;this.src='https://via.placeholder.com/300x400/ffc0cb/ffffff?text=Your+Photo+Here'">
+                    <p class="final-caption">My Heart belongs to you. 💖</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="instruction pulse">Tap to Open 💌</p>
+</section>
+
     </main>
 
-    <script src="config.js"></script>
+    <audio id="bg-music" loop>
+        <!-- Try local file first, then fallback to remote URL -->
+        <source src="music/saudebazi.mp3" type="audio/mpeg">
+    </audio>
+
     <script src="script.js"></script>
 </body>
+
 </html>
