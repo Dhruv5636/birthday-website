@@ -185,4 +185,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const colors = ['#ffc0cb', '#b76e79', '#ffd700', '#ffffff', '#ff69b4'];
         return colors[Math.floor(Math.random() * colors.length)];
     }
+    //music 
+    const enterBtn = document.getElementById("open-surprise-btn");
+const music = document.getElementById("bgMusic");
+
+enterBtn.addEventListener("click", () => {
+    music.volume = 0.7;
+    music.play().catch(() => {});
+});
+
 });
